@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.bryan.calladv.core.ViewContainer xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <ImageView
+            android:id="@+id/iv_bg"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/a2"
+            android:layout_centerHorizontal="true"
+            />
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_centerHorizontal="true"
+            android:background="#65000000"
+            android:gravity="center_horizontal"
+            android:padding="5dp"
+            >
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="张三"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:layout_marginBottom="3dp"
+
+                />
+
+            <TextView
+                android:id="@+id/tv_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="13688888888"
+                android:textColor="#ebebeb"
+                android:textSize="15sp"
+                android:layout_marginBottom="3dp"
+                />
+
+            <TextView
+                android:id="@+id/tv_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="广东 广州"
+                android:textColor="#ebebeb"
+                android:textSize="15sp"
+                />
+        </LinearLayout>
+    </RelativeLayout>
+</com.bryan.calladv.core.ViewContainer>
