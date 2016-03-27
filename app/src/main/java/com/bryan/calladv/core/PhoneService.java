@@ -45,7 +45,7 @@ public class PhoneService extends Service {
 			outNumber=TextUtils.isEmpty(ret)?outNumber:ret;
 			Log.e(TAG, "receiveNumber:"+outNumber);
 		}
-		return START_NOT_STICKY;
+		return START_STICKY;
 	}
 	
 	class MyPhoneListener extends PhoneStateListener{
