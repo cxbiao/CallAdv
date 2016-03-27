@@ -16,6 +16,9 @@ public class PhoneService extends Service {
 	private PhoneTipController phoneTipController;
 	private boolean bInComing=true;
 	private String outNumber="";
+
+	private TelephonyManager telephonyManager;
+	private MyPhoneListener listener=new MyPhoneListener();
 	@Override
 	public IBinder onBind(Intent intent) {
 		Log.e(TAG, "onBind");
@@ -27,9 +30,9 @@ public class PhoneService extends Service {
 	public void onCreate() {
 		super.onCreate();
 		Log.e(TAG, "onCreate");
-		TelephonyManager telephonyManager=
-				(TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
-		telephonyManager.listen(new MyPhoneListener(), PhoneStateListener.LISTEN_CALL_STATE);
+		telephonyManager= (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+		telephonyManager.listen(listener, PhoneStateListener.LISTEN_CALL_STATE);
+
 
 	}
 	
@@ -42,7 +45,7 @@ public class PhoneService extends Service {
 			outNumber=TextUtils.isEmpty(ret)?outNumber:ret;
 			Log.e(TAG, "receiveNumber:"+outNumber);
 		}
-		return START_STICKY;
+		return START_NOT_STICKY;
 	}
 	
 	class MyPhoneListener extends PhoneStateListener{
@@ -90,6 +93,7 @@ public class PhoneService extends Service {
 	@Override
 	public void onDestroy() {
 		super.onDestroy();
+		telephonyManager.listen(listener, PhoneStateListener.LISTEN_NONE);
 		Log.e(TAG, "onDestroy");
 
 	}
