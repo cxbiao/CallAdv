@@ -18,6 +18,7 @@
         <activity
             android:name=".MainActivity"
             android:excludeFromRecents="true"
+            android:configChanges="mcc|mnc|orientation|keyboardHidden|screenSize|keyboardHidden|navigation|screenLayout|fontScale|uiMode|smallestScreenSize"
             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
